@@ -1,0 +1,1150 @@
+/* ═══════════════════════════════════════════════════════════════
+   Legalcare — Dashboard Design System
+   Theme: #007acc  |  Font: Inter
+   Covers: forms, cards, sections, buttons, navbar, footer
+   ═══════════════════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── Variables ─────────────────────────────────────────────── */
+:root {
+  --lc-blue: #007acc;
+  --lc-blue-dark: #005fa3;
+  --lc-blue-glow: rgba(0, 122, 204, .18);
+  --lc-text: #344767;
+  --lc-muted: #7b809a;
+  --lc-border: #d2d6da;
+  --lc-bg: #f0f2f5;
+  --lc-white: #ffffff;
+  --lc-radius: 10px;
+  --lc-card-shadow: 0 4px 24px rgba(0, 0, 0, .09);
+  --lc-btn-shadow: 0 6px 20px rgba(0, 122, 204, .36);
+}
+
+/* ══════════════════════════════════════════════════════════════
+   1.  GLOBAL BASE
+   ══════════════════════════════════════════════════════════════ */
+body {
+  font-family: 'Inter', 'Poppins', sans-serif !important;
+  background: #f8f9fb !important;
+  color: var(--lc-text) !important;
+}
+
+/* ── Links ─────────────────────────────────────────────────── */
+a {
+  transition: color .2s;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   2.  BUTTONS  (fix all hover blue-bg issues)
+   ══════════════════════════════════════════════════════════════ */
+.btn-primary,
+.btn.btn-primary,
+a.btn-primary,
+button.btn-primary,
+input[type="submit"].btn-primary {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+  border: none !important;
+  border-radius: var(--lc-radius) !important;
+  color: #fff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: .875rem !important;
+  letter-spacing: .4px !important;
+  cursor: pointer !important;
+  transition: box-shadow .25s, transform .15s, background .2s !important;
+}
+
+.btn-primary:hover,
+.btn.btn-primary:hover,
+a.btn-primary:hover,
+button.btn-primary:hover,
+input[type="submit"].btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary:not(:disabled):not(.disabled):active {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15) !important;
+  transform: translateY(-1px) !important;
+  color: #fff !important;
+  outline: none !important;
+  border: none !important;
+}
+
+/* .btn-dark used in consultation form */
+.btn-dark,
+.btn.btn-dark,
+input[type="submit"].btn-dark {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+  border: none !important;
+  border-radius: var(--lc-radius) !important;
+  color: #fff !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  letter-spacing: .4px !important;
+  transition: box-shadow .25s, transform .15s !important;
+}
+
+.btn-dark:hover,
+.btn.btn-dark:hover,
+input[type="submit"].btn-dark:hover {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15) !important;
+  transform: translateY(-1px) !important;
+  color: #fff !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   3.  ALL FORM CONTROLS
+   ══════════════════════════════════════════════════════════════ */
+.form-control {
+  border: 1.5px solid var(--lc-border) !important;
+  border-radius: var(--lc-radius) !important;
+  height: 46px !important;
+  padding: 0 16px !important;
+  font-size: .875rem !important;
+  font-family: 'Inter', sans-serif !important;
+  color: var(--lc-text) !important;
+  background: #fff !important;
+  box-shadow: none !important;
+  transition: border-color .2s, box-shadow .2s !important;
+}
+
+textarea.form-control {
+  height: auto !important;
+  padding: 12px 16px !important;
+  resize: vertical !important;
+}
+
+.form-control:focus {
+  border-color: var(--lc-blue) !important;
+  box-shadow: 0 0 0 3px var(--lc-blue-glow) !important;
+  outline: none !important;
+}
+
+.form-control::placeholder {
+  color: var(--lc-muted) !important;
+  font-size: .85rem !important;
+}
+
+/* Labels */
+.form-group label {
+  font-family: 'Inter', sans-serif;
+  font-size: .75rem;
+  font-weight: 600;
+  color: var(--lc-muted);
+  text-transform: uppercase;
+  letter-spacing: .5px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   4.  CONSULTATION FORM  (index + about)
+   ══════════════════════════════════════════════════════════════ */
+.ftco-consultation {
+  position: relative;
+}
+
+/* Remove any murky backdrop — keep it transparent so the bg photo shows */
+.ftco-consultation .half {
+  background: transparent !important;
+  backdrop-filter: none !important;
+}
+
+/* Clean white inputs — solid, no transparent haze */
+.ftco-consultation .consultation .form-control {
+  background: #ffffff !important;
+  border: 1.5px solid var(--lc-border) !important;
+  border-radius: var(--lc-radius) !important;
+  color: var(--lc-text) !important;
+  box-shadow: none !important;
+}
+
+.ftco-consultation .consultation .form-control::placeholder {
+  color: var(--lc-muted) !important;
+}
+
+.ftco-consultation .consultation .form-control:focus {
+  border-color: var(--lc-blue) !important;
+  box-shadow: 0 0 0 3px var(--lc-blue-glow) !important;
+  outline: none !important;
+}
+
+/* Submit — full width blue gradient */
+.ftco-consultation .consultation input[type="submit"],
+.ftco-consultation .consultation .btn {
+  width: 100% !important;
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+  border: none !important;
+  border-radius: var(--lc-radius) !important;
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-family: 'Inter', sans-serif !important;
+  transition: box-shadow .25s, transform .15s !important;
+}
+
+.ftco-consultation .consultation input[type="submit"]:hover,
+.ftco-consultation .consultation .btn:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .18) !important;
+  transform: translateY(-1px) !important;
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   5.  COMMENT FORM  (blog-single)
+   ══════════════════════════════════════════════════════════════ */
+.comment-form-wrap {
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: var(--lc-card-shadow) !important;
+  overflow: hidden !important;
+  clear: both !important;
+  /* keep the existing layout reset */
+}
+
+/* Blue accent bar at top */
+.comment-form-wrap::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: linear-gradient(90deg, var(--lc-blue-dark), var(--lc-blue));
+  border-radius: 12px 12px 0 0;
+}
+
+/* Kill old bg-light / p-5 inside the form wrap */
+.comment-form-wrap .p-5.bg-light {
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   6.  SUBSCRIBE NEWSLETTER BAR
+   ══════════════════════════════════════════════════════════════ */
+
+/* Override the old gold color on .submit */
+.subscribe-form .form-group .submit {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--lc-radius) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: .82rem !important;
+  padding: 10px 22px !important;
+  cursor: pointer !important;
+  white-space: nowrap !important;
+  transition: box-shadow .2s !important;
+  height: 46px !important;
+}
+
+.subscribe-form .form-group .submit:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .18) !important;
+  cursor: pointer !important;
+}
+
+/* The email input — override the old white !important */
+.subscribe-form .form-group input[type="text"],
+.subscribe-form .form-group input[type="email"] {
+  background: rgba(255, 255, 255, .9) !important;
+  border: 1.5px solid rgba(255, 255, 255, .5) !important;
+  border-radius: var(--lc-radius) 0 0 var(--lc-radius) !important;
+  color: #1a1a1a !important;
+  font-family: 'Inter', sans-serif !important;
+  height: 46px !important;
+  font-size: .875rem !important;
+}
+
+.subscribe-form .form-group input:focus {
+  background: #fff !important;
+  border-color: var(--lc-blue) !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   7.  SIDEBAR SEARCH FORM
+   ══════════════════════════════════════════════════════════════ */
+.sidebar-box .search-form {
+  background: #fff;
+  border-radius: var(--lc-radius);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .07);
+  padding: 6px 8px;
+}
+
+.sidebar-box .search-form .form-group {
+  margin: 0;
+  position: relative;
+}
+
+.sidebar-box .search-form .form-group input {
+  padding-left: 44px !important;
+}
+
+.sidebar-box .search-form .icon.icon-search {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--lc-muted);
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   8.  CONTACT PAGE OVERRIDES  (fix #1a2238 → #007acc)
+   ══════════════════════════════════════════════════════════════ */
+.dash-card-header {
+  background: linear-gradient(195deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+}
+
+.contact-info-icon {
+  background: linear-gradient(195deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+}
+
+.btn-dash-send {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+}
+
+.input-group-outline.is-filled label,
+.input-group-outline.is-focused label {
+  color: var(--lc-blue) !important;
+}
+
+.input-group-outline .form-control:focus {
+  border-color: var(--lc-blue) !important;
+  box-shadow: 0 0 0 3px var(--lc-blue-glow) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   9.  DASHBOARD-STYLE CARDS  (services, blog, practice, etc.)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Services cards */
+.services {
+  background: #fff !important;
+  border: 1px solid #eef0f4 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, .06) !important;
+  transition: transform .25s, box-shadow .25s !important;
+  padding: 28px 22px !important;
+}
+
+.services:hover {
+  transform: translateY(-5px) !important;
+  box-shadow: 0 8px 28px rgba(0, 122, 204, .15) !important;
+  /* NO background color change on hover */
+}
+
+/* Service icon badge */
+.services .icon {
+  width: 56px !important;
+  height: 56px !important;
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+  border-radius: 12px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+}
+
+.services .icon span {
+  color: #fff !important;
+  font-size: 26px !important;
+}
+
+/* Blog entry cards */
+.blog-entry {
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, .06) !important;
+  overflow: hidden !important;
+  transition: transform .25s, box-shadow .25s !important;
+}
+
+.blog-entry:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 28px rgba(0, 122, 204, .13) !important;
+}
+
+.blog-entry .text {
+  background: #fff !important;
+}
+
+/* Blog date badge stays blue */
+.blog-entry .text .topper {
+  background: var(--lc-blue) !important;
+  border-radius: 4px 4px 0 0 !important;
+}
+
+.blog-entry .text .topper::after {
+  border-color: var(--lc-blue) transparent transparent transparent !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   TESTIMONIALS — centered, animated dashboard cards
+   ══════════════════════════════════════════════════════════════ */
+
+@keyframes lcFadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.testimony-section {
+  background: #f0f2f5 !important;
+  padding: 80px 0 !important;
+}
+
+.testimony-wrap {
+  background: #fff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .08) !important;
+  border: 1px solid #eef0f4 !important;
+  padding: 36px 28px 28px !important;
+  text-align: center !important;
+  position: relative !important;
+  margin: 8px !important;
+  animation: lcFadeUp .55s ease both !important;
+}
+
+/* Big opening quote mark */
+.testimony-wrap::before {
+  content: '\201C';
+  position: absolute;
+  top: 14px;
+  left: 22px;
+  font-size: 5rem;
+  line-height: 1;
+  color: var(--lc-blue);
+  opacity: .12;
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+/* Quote text */
+.testimony-wrap .text p {
+  font-size: .95rem !important;
+  line-height: 1.75 !important;
+  color: #555 !important;
+  font-style: italic !important;
+  margin-bottom: 24px !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Avatar + name row — center everything */
+.testimony-wrap .text .d-flex {
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 14px !important;
+}
+
+/* Circular avatar with blue ring */
+.testimony-wrap .user-img {
+  width: 60px !important;
+  height: 60px !important;
+  border-radius: 50% !important;
+  border: 3px solid var(--lc-blue) !important;
+  background-size: cover !important;
+  background-position: center !important;
+  flex-shrink: 0 !important;
+}
+
+.testimony-wrap .name {
+  font-weight: 700 !important;
+  font-size: 1rem !important;
+  color: var(--lc-text) !important;
+  font-family: 'Inter', sans-serif !important;
+  margin-bottom: 2px !important;
+}
+
+.testimony-wrap .position {
+  font-size: .78rem !important;
+  color: var(--lc-blue) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .05em !important;
+}
+
+/* Active dot */
+.testimony-section .owl-dots .owl-dot.active {
+  background: var(--lc-blue) !important;
+  width: 22px !important;
+  border-radius: 4px !important;
+  transition: width .3s !important;
+}
+
+.testimony-section .owl-dots .owl-dot {
+  background: #d2d6da !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 4px !important;
+  transition: width .3s, background .3s !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   CASE STUDIES — animated image cards
+   ══════════════════════════════════════════════════════════════ */
+
+@keyframes lcCasePop {
+  from {
+    opacity: 0;
+    transform: scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.carousel-case .case {
+  animation: lcCasePop .5s ease both !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  position: relative !important;
+  transition: transform .3s, box-shadow .3s !important;
+}
+
+.carousel-case .case:hover {
+  transform: scale(1.03) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, .22) !important;
+}
+
+/* Gradient overlay that reveals on hover */
+.carousel-case .case::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 95, 163, .75) 0%, rgba(0, 122, 204, .1) 60%, transparent 100%);
+  opacity: .6;
+  transition: opacity .3s;
+  z-index: 1;
+}
+
+.carousel-case .case:hover::before {
+  opacity: 1;
+}
+
+/* Text sits above overlay */
+.carousel-case .case .text {
+  position: relative;
+  z-index: 2;
+  transition: transform .3s;
+}
+
+.carousel-case .case:hover .text {
+  transform: translateY(-6px);
+}
+
+.carousel-case .case .text h3 a {
+  color: #fff !important;
+  font-weight: 700 !important;
+  font-size: 1.1rem !important;
+  font-family: 'Inter', sans-serif !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, .4) !important;
+}
+
+.carousel-case .case .text span {
+  display: inline-block !important;
+  background: rgba(255, 255, 255, .18) !important;
+  border: 1px solid rgba(255, 255, 255, .4) !important;
+  color: #fff !important;
+  font-size: .72rem !important;
+  font-weight: 600 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase !important;
+  padding: 3px 10px !important;
+  border-radius: 20px !important;
+  margin-top: 6px !important;
+  backdrop-filter: blur(4px) !important;
+}
+
+/* Practice / sidebar recent blog */
+.block-21 {
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, .05);
+  margin-bottom: 16px !important;
+}
+
+/* Sidebar boxes */
+.sidebar-box {
+  background: #fff !important;
+  border-radius: 12px !important;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .06) !important;
+  padding: 22px !important;
+  margin-bottom: 24px !important;
+}
+
+.sidebar-box h3 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1rem !important;
+  font-weight: 700 !important;
+  color: var(--lc-text) !important;
+  border-bottom: 2px solid var(--lc-blue) !important;
+  padding-bottom: 8px !important;
+  margin-bottom: 16px !important;
+}
+
+/* ── Navbar accent ─────────────────────────────────────────── */
+.navbar .nav-item.cta a {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+  color: #fff !important;
+  border-radius: var(--lc-radius) !important;
+  padding: 8px 18px !important;
+  font-weight: 600 !important;
+}
+
+.navbar .nav-item.cta a:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, .15) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* ── Section headings ──────────────────────────────────────── */
+.heading-section .subheading {
+  color: var(--lc-blue) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  font-size: .75rem !important;
+  letter-spacing: .08em !important;
+}
+
+/* ── Pagination active ─────────────────────────────────────── */
+.block-27 ul li.active a,
+.block-27 ul li.active span {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+  border-color: transparent !important;
+}
+
+/* ── Tag clouds ────────────────────────────────────────────── */
+.tagcloud a:hover {
+  background: var(--lc-blue) !important;
+  border-color: var(--lc-blue) !important;
+  color: #fff !important;
+}
+
+/* ── "bg-primary" sections (newsletter bar) ────────────────── */
+.bg-primary {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+}
+
+/* ── Misc: reply button ─────────────────────────────────────── */
+.comment-body .reply:hover {
+  background: var(--lc-blue) !important;
+  color: #fff !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   10.  APPLY_LAWYER FORM  (dashboard)
+   ══════════════════════════════════════════════════════════════ */
+.apply-lawyer-form .form-control:focus {
+  border-color: var(--lc-blue) !important;
+  box-shadow: 0 0 0 3px var(--lc-blue-glow) !important;
+}
+
+
+/* ══════════════════════════════════════════════════════════════
+   12.  ATTORNEY FILTER BAR  (.at-filter-*)
+   ══════════════════════════════════════════════════════════════ */
+
+.at-filter-bar {
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 28px rgba(0, 0, 0, .09);
+  padding: 26px 30px;
+  margin-bottom: 52px;
+  border: 1px solid #eef0f4;
+}
+
+.at-filter-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Inter', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--lc-text);
+  margin-bottom: 18px;
+}
+
+.at-filter-title i {
+  color: var(--lc-blue);
+  font-size: 1.15rem;
+}
+
+.at-filter-form {
+  width: 100%;
+}
+
+.at-filter-row {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.at-filter-field {
+  flex: 1;
+  min-width: 170px;
+  display: flex;
+  flex-direction: column;
+}
+
+.at-filter-btn-field {
+  flex: 0 0 auto;
+  min-width: 170px;
+}
+
+.at-filter-label {
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--lc-muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 7px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.at-filter-label i {
+  color: var(--lc-blue);
+}
+
+.at-select-wrap,
+.appt-select-wrap {
+  position: relative;
+}
+
+.at-select,
+.appt-select {
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  padding-right: 38px !important;
+  cursor: pointer;
+}
+
+.at-select-arrow,
+.appt-select-arrow {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--lc-muted);
+  pointer-events: none;
+  font-size: .85rem;
+}
+
+.at-filter-btn {
+  height: 46px;
+  width: 100%;
+  font-size: .875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+
+
+/* ══════════════════════════════════════════════════════════════
+   14.  APPOINTMENT BOOKING PAGE  (.appt-*)
+   ══════════════════════════════════════════════════════════════ */
+
+/* Hero banner */
+.appt-hero {
+  position: relative;
+  background: linear-gradient(135deg, #003d6b 0%, #005fa3 40%, #007acc 100%);
+  padding: 250px 0 90px;
+  overflow: hidden;
+}
+
+.appt-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="rgba(255,255,255,0.04)" d="M0,160L80,176C160,192,320,224,480,213.3C640,203,800,149,960,138.7C1120,128,1280,160,1360,176L1440,192L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"/></svg>') no-repeat bottom center / cover;
+}
+
+.appt-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, .08);
+}
+
+.appt-hero-inner {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.appt-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, .25);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+  font-weight: 600;
+  padding: 6px 18px;
+  border-radius: 30px;
+  margin-bottom: 22px;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+}
+
+.appt-hero-icon {
+  font-size: 1rem;
+}
+
+.appt-hero-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.6rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 14px;
+  line-height: 1.2;
+}
+
+.appt-hero-sub {
+  color: rgba(255, 255, 255, .8);
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+/* Main section */
+.appt-section {
+  background: #f0f2f5;
+  padding: 60px 0 80px;
+}
+
+/* Summary card */
+.appt-summary-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .09);
+  padding: 28px;
+  border: 1px solid #eef0f4;
+  height: 100%;
+}
+
+.appt-summary-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.appt-summary-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 14px rgba(0, 122, 204, .35);
+}
+
+.appt-summary-avatar span {
+  color: #fff;
+  font-size: 1.4rem;
+}
+
+.appt-summary-role {
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--lc-blue);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-bottom: 2px;
+}
+
+.appt-summary-name {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--lc-text);
+  margin-bottom: 0;
+}
+
+.appt-summary-divider {
+  height: 1px;
+  background: #eef0f4;
+  margin: 0 0 22px;
+}
+
+.appt-summary-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+}
+
+.appt-summary-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 0;
+  border-bottom: 1px solid #f5f6fa;
+}
+
+.appt-summary-item:last-child {
+  border-bottom: none;
+}
+
+.appt-summary-item-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  background: var(--lc-blue-glow);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.appt-summary-item-icon i {
+  font-size: 1.2rem;
+  color: var(--lc-blue);
+}
+
+.appt-summary-item-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.appt-summary-item-label {
+  font-family: 'Inter', sans-serif;
+  font-size: .72rem;
+  font-weight: 600;
+  color: var(--lc-muted);
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  margin-bottom: 3px;
+}
+
+.appt-summary-item-value {
+  font-family: 'Inter', sans-serif;
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--lc-text);
+}
+
+.appt-status-badge {
+  display: inline-block;
+  background: rgba(40, 167, 69, .12);
+  color: #1a7a35;
+  font-family: 'Inter', sans-serif;
+  font-size: .75rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: 20px;
+  border: 1px solid rgba(40, 167, 69, .25);
+}
+
+.appt-summary-note {
+  background: #f0f7ff;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+  color: var(--lc-blue);
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.5;
+  border: 1px solid rgba(0, 122, 204, .15);
+}
+
+.appt-summary-note i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+/* Booking form card */
+.appt-form-card {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, .09);
+  overflow: hidden;
+  border: 1px solid #eef0f4;
+}
+
+.appt-form-card-header {
+  background: linear-gradient(135deg, var(--lc-blue-dark), var(--lc-blue));
+  padding: 28px 32px;
+}
+
+.appt-form-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.appt-form-subtitle {
+  font-family: 'Inter', sans-serif;
+  font-size: .85rem;
+  color: rgba(255, 255, 255, .75);
+  margin: 0;
+}
+
+.appt-form {
+  padding: 32px;
+}
+
+.appt-form-group {
+  margin-bottom: 24px;
+}
+
+.appt-form-label {
+  display: flex !important;
+  align-items: center;
+  gap: 7px;
+  font-family: 'Inter', sans-serif !important;
+  font-size: .75rem !important;
+  font-weight: 600 !important;
+  color: var(--lc-muted) !important;
+  text-transform: uppercase !important;
+  letter-spacing: .05em !important;
+  margin-bottom: 8px !important;
+}
+
+.appt-form-label i {
+  color: var(--lc-blue);
+  font-size: 1rem;
+}
+
+.appt-input,
+.appt-select {
+  height: 50px !important;
+  border-radius: 10px !important;
+  border: 1.5px solid var(--lc-border) !important;
+  font-family: 'Inter', sans-serif !important;
+  font-size: .9rem !important;
+  color: var(--lc-text) !important;
+  background: #fff !important;
+  transition: border-color .2s, box-shadow .2s !important;
+}
+
+.appt-input:focus,
+.appt-select:focus {
+  border-color: var(--lc-blue) !important;
+  box-shadow: 0 0 0 4px rgba(0, 122, 204, .12) !important;
+  outline: none !important;
+}
+
+.appt-select-wrap {
+  position: relative;
+}
+
+.appt-terms-note {
+  background: #fffbf0;
+  border: 1px solid rgba(255, 193, 7, .3);
+  border-radius: 10px;
+  padding: 12px 16px;
+  font-family: 'Inter', sans-serif;
+  font-size: .8rem;
+  color: #856404;
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  line-height: 1.5;
+  margin-bottom: 28px;
+}
+
+.appt-terms-note i {
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  color: #d39e00;
+}
+
+.appt-form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.appt-btn-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Inter', sans-serif;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--lc-muted) !important;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  border: 1.5px solid var(--lc-border);
+  transition: border-color .2s, color .2s, background .2s;
+  background: #fff;
+}
+
+.appt-btn-back:hover {
+  border-color: var(--lc-blue);
+  color: var(--lc-blue) !important;
+  text-decoration: none;
+}
+
+.appt-btn-confirm {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 28px !important;
+  font-size: .9rem !important;
+  border-radius: 10px !important;
+  box-shadow: 0 6px 20px rgba(0, 122, 204, .36) !important;
+}
+
+.appt-btn-confirm:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 28px rgba(0, 122, 204, .45) !important;
+}
+
+/* ══════════════════════════════════════════════════════════════
+   15.  DASHBOARD STAT CARD TWEAKS
+   ══════════════════════════════════════════════════════════════ */
+
+/* Ensure stat cards have proper styling */
+.card .card-header {
+  border-bottom: none;
+}
+
+.card .card-header .icon.icon-md {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg-gradient-primary {
+  background: linear-gradient(195deg, var(--lc-blue-dark), var(--lc-blue)) !important;
+}
